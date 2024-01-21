@@ -3,9 +3,11 @@
 #include "../core.h"
 #include "../pch.h"
 #include "./scene.h"
-#include "./game.h"
 
 namespace amx {
+
+    class Game;
+
     class AMX_API SceneManager {
         public:
             /// @brief Default constructor for the scene manager
