@@ -22,9 +22,9 @@ namespace amx {
             void dispose();
             /// @brief Update function for the entity
             /// @param deltaT Time between each frame in seconds
-            virtual void update(double deltaT) {}
+            void update(double deltaT);
             /// @brief Draw function for the entity
-            virtual void draw() {}
+            void draw();
 
         protected:
             /// @brief Id of the entity
