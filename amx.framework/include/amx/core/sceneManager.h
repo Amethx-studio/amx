@@ -8,6 +8,7 @@ namespace amx {
 
     class Game;
 
+    /// @brief Class handling the different scenes of the game.
     class AMX_API SceneManager {
         public:
             /// @brief Default constructor for the scene manager
