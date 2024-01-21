@@ -1,12 +1,13 @@
 #pragma once
 
+#include "../../core.h"
 #include "vec.h"
 
 namespace amx {
     /// @brief Base class defining a vector 3
     /// @tparam T Type of data to handle
     template <typename T>
-    struct vec<3, T> {
+    struct AMX_API vec<3, T> {
         T x;
         T y;
         T z;
