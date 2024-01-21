@@ -2,7 +2,7 @@
 
 #include "../core.h"
 #include "../pch.h"
-#include "../core/entity.h"
+#include "./entity.h"
 #include "../data/uuid.h"
 
 namespace amx {

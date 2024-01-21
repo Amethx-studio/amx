@@ -5,11 +5,10 @@
 #include "../core/component.h"
 #include "../data/uuid.h"
 #include "../interfaces/ITransform.h"
-#include "./scene.h"
 
 namespace amx {
 
-    class EntityImplementation;
+    class Scene;
 
     /// @brief Class representing an entity within the game. An entity is a game object
     /// @brief which has positional values and is componsed of different components.
@@ -39,8 +38,6 @@ namespace amx {
             void draw();
 
         protected:
-            /// @brief Internal implementation of the entities
-            std::unique_ptr<EntityImplementation> _internal;
             /// @brief Id of the entity
             UUID _id;
             /// @brief Component map

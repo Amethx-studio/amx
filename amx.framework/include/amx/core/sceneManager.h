@@ -13,6 +13,21 @@ namespace amx {
             /// @brief Dispose function for the scene manager
             void dispose();
 
+            template <typename T>
+            void registerScene(T SceneManager) {
+
+            }
+            
+            template <typename T>
+            void setScene(T scene) {
+                static_assert(std::is_same<T, Scene>::value, "T needs to be of type Scene");
+                auto key = typeid(T);
+                auto it = _scenes.find(key);
+                if (it != _scenes.end()) {
+                    _currentScene = _scenes[key];
+                }
+            }
+
             // Friend class of the Game
             friend Game;
 
