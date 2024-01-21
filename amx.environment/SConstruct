@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+
+import platform
+import os
+import shutil
+
+if os.path.exists('bin'):
+    shutil.rmtree('bin')
+
+# Options
+AddOption('--release', dest='release', action='store_true')
+AddOption('--arch', dest='arch', type='choice', choices=['x64', 'x86'], default='x64', nargs=1, action='store')
+
+# Configuration
+arch = GetOption('arch')
+env = Environment(tools=['mingw'], SCONS_CXX_STANDARD='c++20', TARGET_ARCH=arch)
+platform = platform.system()
+
+# Build parameters
+config = 'debug'
+if GetOption('release'):
+    config = 'release'
+
+outDir = '{}\\{}\\'.format(config, arch)
+
+env.Append( CPPPATH=[
+        env.Dir('src'),
+        env.Dir('libs\\includes'),
+        env.Dir('..\\amx.framework\\bin\\{}\\include'.format(outDir))
+] )
+
+# Defines
+
+defines = [
+]
+
+if platform == 'Windows':
+    defines.append('WINDOWS')
+elif platform == 'Linux':
+    defines.append('LINUX')
+elif platform == 'Darwin':
+    defines.append('MACOS')
+
+env.Append( CPPDEFINES=defines )
+env.Append( LIBPATH=[env.Dir('..\\amx.framework\\bin\\{}'.format(outDir))] )
+env.Append( LIBS=[
+    'libamx'
+] )
+
+ccflags = []
+
+if not GetOption('release'):
+    ccflags.append('-g')
+
+env.Append( CCFLAGS=ccflags)
+
+
+# Exports for other Sconscript #
+    
+Export('env')
+Export('outDir')
+
+# End exports #
+
+
+SConscript('src/SConscript', variant_dir='build\\{}'.format(outDir), duplicate=0)

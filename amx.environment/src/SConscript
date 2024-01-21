@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+import os
+
+Import('env')
+
+# Getting the different files
+def generate_cpp_paths(folder):
+    cpp_paths = []
+
+    def explore_directory(current_path, relative_path=""):
+        nonlocal cpp_paths
+
+        for item in os.listdir(current_path):
+            item_path = os.path.join(current_path, item)
+
+            if os.path.isdir(item_path):
+                new_relative_path = os.path.join(relative_path, item)
+                cpp_paths.append(os.path.join(".", new_relative_path, '*.cpp'))
+                cpp_paths.append(os.path.join(".", new_relative_path, '*.c'))
+                explore_directory(item_path, new_relative_path)
+
+    explore_directory(folder)
+    return cpp_paths
+
+cpp_files = generate_cpp_paths(".")
+cpp_files.append(".\\*.cpp")
+cpp_files.append(".\\*.c")
+
+src_files = []
+
+for path in cpp_files:
+    src_files.append(Glob(path))
+
+# compile_commands.json for NVIM environment
+env.Tool('compilation_db')
+env.CompilationDatabase()
+
+# build program
+program = env.Program('amx', src_files)
+
+# copy the library header file
+
+Import('outDir')
+
+bin_dir = '#bin\\{}'.format(outDir)
+project_exe = ['.\\amx.exe']
+
+env.Install(bin_dir, project_exe)
+env.Install(bin_dir, '#..\\amx.framework\\bin\\{}\\amx.dll'.format(outDir))

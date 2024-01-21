@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Debug x64",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\amx.environment\\bin\\debug\\x64\\amx.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "cwd": "${workspaceFolder}\\amx.environment\\bin\\debug\\x64",
+            "environment": [],
+            "preLaunchTask": "build environment debug x64",
+            "MIMode": "gdb"
+        },
+        {
+            "name": "Debug x86",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\amx.environment\\bin\\debug\\x32\\amx.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "cwd": "${workspaceFolder}\\amx.environment\\bin\\debug\\x32",
+            "environment": [],
+            "preLaunchTask": "build amx debug x86",
+            "MIMode": "gdb"
+        }
+    ]
+}

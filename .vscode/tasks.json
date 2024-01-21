@@ -1,0 +1,63 @@
+{
+    "tasks": [
+        {
+            "label": "build amx debug x64",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-Q"
+            ],
+            "group": {
+                "kind": "build",
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}\\amx.framework"
+            }
+        },
+        {
+            "label": "build amx debug x86",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+                "-Q",
+                "--arch=x86"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}\\amx.framework"
+            }
+        },
+        {
+            "label": "build environment debug x64",
+            "type": "shell",
+            "command": "scons",
+            "args": [
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}\\amx.environment"
+            },
+            "dependsOn": [
+                "build amx debug x64"
+            ]
+        }
+    ],
+    "version": "2.0.0"
+}
