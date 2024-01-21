@@ -5,8 +5,14 @@
 #include "../core/component.h"
 #include "../data/uuid.h"
 #include "../interfaces/ITransform.h"
+#include "./scene.h"
 
 namespace amx {
+
+    class EntityImplementation;
+
+    /// @brief Class representing an entity within the game. An entity is a game object
+    /// @brief which has positional values and is componsed of different components.
     class AMX_API Entity : public ITransform {
         public:
             /// @brief Default constructor for the Entity class
@@ -20,6 +26,12 @@ namespace amx {
             }
             /// @brief Dispose of the entity and its references
             void dispose();
+
+            // Friend class of the scene manager. This is added so it can
+            // call the update draw function.
+            friend Scene;
+
+        private:
             /// @brief Update function for the entity
             /// @param deltaT Time between each frame in seconds
             void update(double deltaT);
@@ -27,6 +39,8 @@ namespace amx {
             void draw();
 
         protected:
+            /// @brief Internal implementation of the entities
+            std::unique_ptr<EntityImplementation> _internal;
             /// @brief Id of the entity
             UUID _id;
             /// @brief Component map
