@@ -2,6 +2,7 @@
 
 #include "../core.h"
 #include "../pch.h"
+#include "./sceneManager.h"
 #include "../graphics/graphicsDevice.h"
 #include "../data/config/gameInitConfig.h"
 
@@ -25,6 +26,8 @@ namespace amx {
 
         protected:
             std::string _title;
+            /// @brief Reference to the scene manager
+            std::shared_ptr<SceneManager> _sceneManager;
             /// @brief Reference to the graphics device
             std::shared_ptr<GraphicsDevice> _graphicsDevice;
 

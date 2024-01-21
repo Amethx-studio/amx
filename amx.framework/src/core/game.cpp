@@ -12,6 +12,7 @@ namespace amx {
 
     Game::Game() : _internal(std::make_unique<Impl>()) {
         _graphicsDevice = std::make_shared<GraphicsDevice>();
+        _sceneManager = std::make_shared<SceneManager>();
     }
 
     std::shared_ptr<GraphicsDevice> Game::graphicsDevice() { return _graphicsDevice; }
