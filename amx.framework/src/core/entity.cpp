@@ -18,6 +18,8 @@ namespace amx {
     }
 
     void Entity::dispose() {
-
+        for (auto component : _components) {
+            component.second->dispose();
+        }
     }
 }
