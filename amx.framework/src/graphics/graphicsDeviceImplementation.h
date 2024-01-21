@@ -19,6 +19,8 @@ namespace amx {
             virtual void endFrame() = 0;
             /// @brief Dipose of the API data and close the app.
             virtual void dispose() = 0;
+            /// @brief Get the time between each frame
+            virtual double getTime() = 0;
             /// @brief Platform specific implementation of setting the viewport
             /// @param width Width of the viewport
             /// @param height Height of the viewport

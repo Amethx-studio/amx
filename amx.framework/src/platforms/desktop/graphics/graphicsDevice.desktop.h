@@ -28,6 +28,8 @@ namespace amx {
             /// @param width Width of the viewport
             /// @param height Height of the viewport
             void setViewport(int width, int height) override;
+            /// @brief Get the time between each frame
+            double getTime() override;
 
         private:
             /// @brief Center the window in the monitor

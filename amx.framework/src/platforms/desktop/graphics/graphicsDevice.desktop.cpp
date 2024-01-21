@@ -79,4 +79,8 @@ namespace amx {
     DesktopGraphicsDevice::~DesktopGraphicsDevice() {
         dispose();
     }
+
+    double DesktopGraphicsDevice::getTime() {
+        return glfwGetTime();
+    }
 }
