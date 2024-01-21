@@ -31,8 +31,8 @@ namespace amx {
     void Game::run() {
         auto previousTime = _graphicsDevice->_internal->getTime();
         while (!_graphicsDevice->_internal->shouldClose()) {
-            _graphicsDevice->_internal->beginFrame();
             auto currentTime = _graphicsDevice->_internal->getTime();
+            _graphicsDevice->_internal->beginFrame();
             _sceneManager->update(currentTime - previousTime);
             _sceneManager->draw();
             _graphicsDevice->_internal->endFrame();
