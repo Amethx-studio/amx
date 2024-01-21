@@ -31,6 +31,8 @@ namespace amx {
     void Game::run() {
         while (!_graphicsDevice->_internal->shouldClose()) {
             _graphicsDevice->_internal->beginFrame();
+            _sceneManager->update(0);
+            _sceneManager->draw();
             _graphicsDevice->_internal->endFrame();
         }
         terminate();
