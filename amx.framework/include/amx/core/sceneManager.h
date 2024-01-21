@@ -15,11 +15,24 @@ namespace amx {
             /// @brief Dispose function for the scene manager
             void dispose();
 
+            /// @brief Register a scene to the scene manager
+            /// @tparam T Type of scene to register. Only one scene of a type can be registered
+            /// @param scene Scene to register
             template <typename T>
-            void registerScene(T SceneManager) {
-
+            void registerScene(T scene) {
+                static_assert(std::is_same<T, Scene>::value, "T needs to be of type Scene");
+                auto key = typeid(T);
+                auto it = _scenes.find(key);
+                if (it == _scenes.end()) {
+                    _scenes[key] = scene;
+                    if (_currentScene == nullptr)
+                        setScene(scene);
+                }
             }
             
+            /// @brief Set the scene of the scene manager
+            /// @tparam T Scene to set
+            /// @param scene Scene object
             template <typename T>
             void setScene(T scene) {
                 static_assert(std::is_same<T, Scene>::value, "T needs to be of type Scene");
