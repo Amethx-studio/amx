@@ -26,6 +26,34 @@ namespace amx {
             /// @brief Dispose of the entity and its references
             void dispose();
 
+            /// @brief Add a component to an entity
+            /// @tparam T 
+            /// @param component 
+            template <typename T>
+            void addComponent(T component) {
+                static_assert(std::is_same<T, Component>::value, "T needs to be a component");
+                auto key = typeid(T);
+                auto it = _components.find(key);
+                if (it == _components.end()) {
+                    _components[key] = component;
+                }
+            }
+
+            /// @brief Get a component from the entity
+            /// @tparam T Type of the component to retrieve
+            /// @return Component object
+            template <typename T>
+            std::shared_ptr<T> getComponent() {
+                static_assert(std::is_same<T, Component>::value, "T needs to be a component");
+                auto key = typeid(T);
+                auto it = _components.find(key);
+                if (it != _components.end()) {
+                    return _components[key];
+                }
+
+                return nullptr;
+            }
+
             // Friend class of the scene manager. This is added so it can
             // call the update draw function.
             friend Scene;
