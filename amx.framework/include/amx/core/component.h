@@ -9,8 +9,8 @@ namespace amx {
             /// @param deltaT Time between each frame
             virtual void update(double deltaT) = 0;
             /// @brief Draw function of the component
-            virtual void draw() = 0;
+            virtual void draw() {}
             /// @brief Dispose function of the component
-            virtual void dispose() = 0;
+            virtual void dispose() {}
     };
 }

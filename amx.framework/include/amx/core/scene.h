@@ -10,6 +10,7 @@ namespace amx {
     /// @brief of its entities.
     class AMX_API Scene {
         public:
+            /// @brief Initialization function of the game
             virtual void init() = 0;
             void dispose();
             /// @brief Update function for the project

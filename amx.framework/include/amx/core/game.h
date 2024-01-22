@@ -16,6 +16,9 @@ namespace amx {
             /// @brief Initialize the game object and its dependencies
             /// @param config Config object of for the game
             bool init(GameInitConfig config);
+            /// @brief Callback used to register the different scenes to the game.
+            /// @brief Make sure that all the scenes that will be used are registered here.
+            virtual void registerScenes() = 0;
             /// @brief Starts the game loop
             void run();
             /// @brief Terminate function of the game

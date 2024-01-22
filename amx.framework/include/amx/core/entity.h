@@ -15,9 +15,9 @@ namespace amx {
     class AMX_API Entity : public ITransform {
         public:
             /// @brief Default constructor for the Entity class
-            Entity();
+            Entity() {}
             /// @brief Destructor for the Entity class
-            ~Entity();
+            virtual ~Entity() {}
             /// @brief Gets the ID of the entity
             /// @return ID of the entity
             std::string id() const {
@@ -30,9 +30,9 @@ namespace amx {
             /// @tparam T 
             /// @param component 
             template <typename T>
-            void addComponent(T component) {
-                static_assert(std::is_same<T, Component>::value, "T needs to be a component");
-                auto key = typeid(T);
+            void addComponent(std::shared_ptr<T> component) {
+                static_assert(std::is_base_of<Component, T>::value, "T needs to be a component");
+                auto key = std::type_index(typeid(T));
                 auto it = _components.find(key);
                 if (it == _components.end()) {
                     _components[key] = component;
@@ -44,8 +44,8 @@ namespace amx {
             /// @return Component object
             template <typename T>
             std::shared_ptr<T> getComponent() {
-                static_assert(std::is_same<T, Component>::value, "T needs to be a component");
-                auto key = typeid(T);
+                static_assert(std::is_base_of<Component, T>::value, "T needs to be a component");
+                auto key = std::type_index(typeid(T));
                 auto it = _components.find(key);
                 if (it != _components.end()) {
                     return _components[key];

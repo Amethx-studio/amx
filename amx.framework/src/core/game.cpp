@@ -25,6 +25,8 @@ namespace amx {
             }
         }
 
+        registerScenes();
+
         return status;
     }
 

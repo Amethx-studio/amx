@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-    auto game = new TestEnv::Game();
+    auto game = new game::Game();
     if (game->init({.title="AMX", .viewportW=1280, .viewportH=720})) {
         game->run();
     }

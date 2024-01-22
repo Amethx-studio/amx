@@ -3,10 +3,10 @@
 #include <amx/amx.h>
 #include <string>
 
-namespace TestEnv {
+namespace game {
     class Game : public amx::Game {
         public:
             Game() : amx::Game() {}
-            ~Game();
+            void registerScenes() override;
     };
 }
