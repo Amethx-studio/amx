@@ -1,6 +1,8 @@
 #pragma once
 
+#include "../core.h"
+
 namespace amx {
-    struct Material {
+    struct AMX_API Material {
     };
 }
