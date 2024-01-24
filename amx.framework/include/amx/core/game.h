@@ -38,6 +38,16 @@ namespace amx {
                 return _instance;
             }
 
+            /// @brief Getter for the SceneManager
+            std::shared_ptr<SceneManager> sceneManager() const {
+                return _sceneManager;
+            }
+
+            /// @brief getter for the GraphicsDevice
+            std::shared_ptr<GraphicsDevice> graphicsDevice() const {
+                return _graphicsDevice;
+            }
+
         private:
             /// @brief Instance reference to the game object;
             static std::shared_ptr<Game> _instance;
