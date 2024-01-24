@@ -14,5 +14,6 @@
 #include "graphics/geometry.h"
 #include "graphics/material.h"
 #include "graphics/graphicsDevice.h"
+#include "graphics/primitives/quad.h"
 
 // ---------- End ---------- //
