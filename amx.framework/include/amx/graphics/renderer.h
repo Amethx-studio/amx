@@ -9,7 +9,9 @@ namespace amx {
 
     class Renderer {
         public:
+            /// @brief Draw something to the screen
             void draw();
+            /// @brief Friend class reference to the game
             friend class Game;
 
         private:
