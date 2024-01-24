@@ -10,6 +10,4 @@
 #include "core/scene.h"
 #include "core/sceneManager.h"
 
-#include "api/coreApi.h"
-
 // ---------- End ---------- //

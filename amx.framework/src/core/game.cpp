@@ -5,18 +5,17 @@
 
 namespace amx {
 
-     class Game::Impl {
+    class Game::Impl {
         public:
             friend class GraphicsDevice;
     };
 
-    Game::Game(GameInitConfig config) : _internal(std::make_unique<Impl>()) {
+    std::shared_ptr<Game> Game::_instance = nullptr;
+
+    Game::Game() : _internal(std::make_unique<Impl>()) {
         _graphicsDevice = std::make_shared<GraphicsDevice>();
         _sceneManager = std::make_shared<SceneManager>();
-        init(config);
     }
-
-    std::shared_ptr<GraphicsDevice> Game::graphicsDevice() { return _graphicsDevice; }
 
     bool Game::init(GameInitConfig config) {
         auto status = config.title != "" ? _graphicsDevice->_internal->init(config.title) : _graphicsDevice->_internal->init("AMX");
