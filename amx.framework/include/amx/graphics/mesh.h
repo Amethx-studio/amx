@@ -4,7 +4,7 @@
 #include "./material.h"
 
 namespace amx {
-    struct Primitive {
+    struct Mesh {
         public:
             Geometry geometry;
             Material material;

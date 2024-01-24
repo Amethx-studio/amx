@@ -4,7 +4,7 @@
 namespace game {
 
     LogComponent::LogComponent() {
-        _primitive = amx::Primitive({amx::Geometry(), amx::Material()});
+        _primitive = amx::Mesh({amx::Geometry(), amx::Material()});
     }
 
     void LogComponent::update(double deltaT) {

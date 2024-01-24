@@ -2,7 +2,7 @@
 
 #include "../pch.h"
 #include "../core.h"
-#include "./primitives/primitive.h"
+#include "./mesh.h"
 
 namespace amx {
 
@@ -12,7 +12,7 @@ namespace amx {
     class AMX_API Renderer {
         public:
             /// @brief Draw something to the screen
-            void draw(int x, int y, Primitive primitive);
+            void draw(int x, int y, Mesh mesh);
             /// @brief Friend class reference to the game
             friend class Game;
 

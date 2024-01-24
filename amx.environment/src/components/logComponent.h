@@ -10,6 +10,6 @@ namespace game {
             void draw() override;
 
         private:
-            amx::Primitive _primitive;
+            amx::Mesh _primitive;
     };
 }

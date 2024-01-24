@@ -10,9 +10,9 @@
 #include "core/scene.h"
 #include "core/sceneManager.h"
 
-#include "graphics/primitives/primitive.h"
-#include "graphics/primitives/geometry.h"
-#include "graphics/primitives/material.h"
+#include "graphics/mesh.h"
+#include "graphics/geometry.h"
+#include "graphics/material.h"
 #include "graphics/graphicsDevice.h"
 
 // ---------- End ---------- //
