@@ -1,13 +1,14 @@
 #pragma once
 
 #include "../pch.h"
+#include "../core.h"
 
 namespace amx {
 
     class Game;
     class RendererInternal;
 
-    class Renderer {
+    class AMX_API Renderer {
         public:
             /// @brief Draw something to the screen
             void draw();
