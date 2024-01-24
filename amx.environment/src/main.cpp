@@ -17,7 +17,7 @@ int main() {
         .scenes = scenes
     });
 
-    auto game = amx::Game::createInstance(config);
+    auto game = core::createInstance(config);
     game->run();
 
     return 0;

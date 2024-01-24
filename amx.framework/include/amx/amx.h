@@ -10,4 +10,6 @@
 #include "core/scene.h"
 #include "core/sceneManager.h"
 
+using core = amx::Game;
+
 // ---------- End ---------- //
