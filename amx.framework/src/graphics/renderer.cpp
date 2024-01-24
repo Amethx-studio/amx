@@ -2,7 +2,7 @@
 #include "./renderer.internal.h"
 
 namespace amx {
-    void Renderer::draw() {
+    void Renderer::draw(int x, int y, Primitive primitive) {
 
     }
 

@@ -44,9 +44,14 @@ namespace amx {
                 return _sceneManager;
             }
 
-            /// @brief getter for the GraphicsDevice
+            /// @brief Getter for the GraphicsDevice
             std::shared_ptr<GraphicsDevice> graphicsDevice() const {
                 return _graphicsDevice;
+            }
+
+            /// @brief Getter for the renderer
+            std::shared_ptr<Renderer> renderer() const {
+                return _renderer;
             }
 
         private:

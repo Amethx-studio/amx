@@ -5,6 +5,11 @@
 namespace game {
     class LogComponent : public amx::Component {
         public:
+            LogComponent();
             void update(double deltaT) override;
+            void draw() override;
+
+        private:
+            amx::Primitive _primitive;
     };
 }

@@ -2,7 +2,16 @@
 #include <iostream>
 
 namespace game {
-    void LogComponent::update(double deltaT) {
-        std::cout << deltaT << std::endl;
+
+    LogComponent::LogComponent() {
+        _primitive = amx::Primitive({amx::Geometry(), amx::Material()});
     }
+
+    void LogComponent::update(double deltaT) {
+    }
+
+    void LogComponent::draw() {
+        amx::Game::get()->renderer()->draw(0, 0, _primitive);
+    }
+
 }

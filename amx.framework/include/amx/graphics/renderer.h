@@ -2,6 +2,7 @@
 
 #include "../pch.h"
 #include "../core.h"
+#include "./primitives/primitive.h"
 
 namespace amx {
 
@@ -11,7 +12,7 @@ namespace amx {
     class AMX_API Renderer {
         public:
             /// @brief Draw something to the screen
-            void draw();
+            void draw(int x, int y, Primitive primitive);
             /// @brief Friend class reference to the game
             friend class Game;
 
