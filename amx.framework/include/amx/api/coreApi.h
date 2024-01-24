@@ -8,14 +8,7 @@
 using scene_list = std::vector<std::shared_ptr<amx::Scene>>;
 
 namespace amx {
-    inline std::shared_ptr<Game> createGameInstance(std::string gameTitle, int viewportW, int viewportH, scene_list scenes) {
-        GameInitConfig config = GameInitConfig({
-            .title = gameTitle,
-            .viewportW = viewportW,
-            .viewportH = viewportH,
-            .scenes = scenes
-        });
-
+    inline std::shared_ptr<Game> createGameInstance(GameInitConfig config) {
         auto game = std::make_shared<Game>(config);
 
         return game;

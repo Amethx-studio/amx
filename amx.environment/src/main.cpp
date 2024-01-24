@@ -9,8 +9,15 @@ int main() {
     std::vector<std::shared_ptr<amx::Scene>> scenes = {
         std::make_shared<game::MainScene>()
     };
-    
-    auto game = amx::createGameInstance("AMX", 1280, 720, scenes);
+
+    amx::GameInitConfig config = amx::GameInitConfig({
+        .title = "AMX",
+        .viewportW = 1280,
+        .viewportH = 720,
+        .scenes = scenes
+    });
+
+    auto game = amx::createGameInstance(config);
     game->run();
 
     return 0;
