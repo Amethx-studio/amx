@@ -2,6 +2,7 @@
 #include "amx/pch.h"
 
 #include "graphics/graphicsDeviceImplementation.h"
+#include "graphics/renderer.internal.h"
 
 namespace amx {
 
@@ -15,6 +16,7 @@ namespace amx {
     Game::Game() : _internal(std::make_unique<Impl>()) {
         _graphicsDevice = std::make_shared<GraphicsDevice>();
         _sceneManager = std::make_shared<SceneManager>();
+        _renderer = std::make_shared<Renderer>();
     }
 
     bool Game::init(GameInitConfig config) {
@@ -41,8 +43,10 @@ namespace amx {
         while (!_graphicsDevice->_internal->shouldClose()) {
             auto currentTime = _graphicsDevice->_internal->getTime();
             _graphicsDevice->_internal->beginFrame();
+            _renderer->_internal->begin();
             _sceneManager->update(currentTime - previousTime);
             _sceneManager->draw();
+            _renderer->_internal->end();
             _graphicsDevice->_internal->endFrame();
             previousTime = currentTime;
         }

@@ -4,6 +4,7 @@
 #include "../pch.h"
 #include "./sceneManager.h"
 #include "../graphics/graphicsDevice.h"
+#include "../graphics/renderer.h"
 #include "../data/config/gameInitConfig.h"
 
 namespace amx {
@@ -69,5 +70,7 @@ namespace amx {
             std::shared_ptr<SceneManager> _sceneManager;
             /// @brief Reference to the graphics device
             std::shared_ptr<GraphicsDevice> _graphicsDevice;
+            /// @brief Reference to the renderer
+            std::shared_ptr<Renderer> _renderer;
     };
 }
