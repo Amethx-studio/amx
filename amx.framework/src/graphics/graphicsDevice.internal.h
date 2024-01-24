@@ -4,7 +4,7 @@
 #include "amx/core/game.h"
 
 namespace amx {
-    class GraphicsDeviceImplementation {
+    class GraphicsDeviceInternal {
         public:
             /// @brief Init function of the GraphicsDevice. This communicates with the
             /// @brief platform specific API and makes sure every thing is fine

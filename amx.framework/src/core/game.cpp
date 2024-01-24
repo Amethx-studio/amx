@@ -1,7 +1,7 @@
 #include "amx/core/game.h"
 #include "amx/pch.h"
 
-#include "graphics/graphicsDeviceImplementation.h"
+#include "graphics/graphicsDevice.internal.h"
 #include "graphics/renderer.internal.h"
 
 namespace amx {

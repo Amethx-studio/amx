@@ -5,7 +5,7 @@
 
 namespace amx {
     class Game;
-    class GraphicsDeviceImplementation;
+    class GraphicsDeviceInternal;
 
     /// @brief Class representing the different graphics device and their respective API
     class AMX_API GraphicsDevice {
@@ -22,6 +22,6 @@ namespace amx {
 
         private:
             /// @brief Internal platform specific implementation of the GraphicsDevice class.
-            std::unique_ptr<GraphicsDeviceImplementation> _internal;
+            std::unique_ptr<GraphicsDeviceInternal> _internal;
     };
 }

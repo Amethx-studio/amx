@@ -1,13 +1,13 @@
 #pragma once
 
-#include "graphics/graphicsDeviceImplementation.h"
+#include "graphics/graphicsDevice.internal.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 namespace amx {
     /// @brief Desktop specific implementation of the GraphicsDevice
-    class DesktopGraphicsDevice : public GraphicsDeviceImplementation {
+    class DesktopGraphicsDevice : public GraphicsDeviceInternal {
         public:
             /// @brief Destructor of the Desktop GraphicsDevice
             ~DesktopGraphicsDevice();
