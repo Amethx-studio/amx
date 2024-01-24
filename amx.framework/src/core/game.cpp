@@ -10,9 +10,10 @@ namespace amx {
             friend class GraphicsDevice;
     };
 
-    Game::Game() : _internal(std::make_unique<Impl>()) {
+    Game::Game(GameInitConfig config) : _internal(std::make_unique<Impl>()) {
         _graphicsDevice = std::make_shared<GraphicsDevice>();
         _sceneManager = std::make_shared<SceneManager>();
+        init(config);
     }
 
     std::shared_ptr<GraphicsDevice> Game::graphicsDevice() { return _graphicsDevice; }
@@ -25,9 +26,15 @@ namespace amx {
             }
         }
 
-        registerScenes();
+        registerScenes(config.scenes);
 
         return status;
+    }
+
+    void Game::registerScenes(std::vector<std::shared_ptr<Scene>> scenes) {
+        for (auto scene : scenes) {
+            _sceneManager->registerScene(scene);
+        }
     }
 
     void Game::run() {
